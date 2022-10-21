@@ -1,0 +1,15 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: rgb(244, 147, 147);
+    height: 9vh;
+    padding-block: 2vh;
+
+    nav {
+        width: 20%;
+        display: flex;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,23 @@
+.card-container {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(178, 172, 172);
+
+    .card-title {
+        font-family: Allibaba-Semi-Bold;
+        font-size: 2em;
+        color: rgb(78, 9, 90);
+    }
+
+    img {
+        width: 90%;
+        border: 1px solid white;
+        border-radius: 1.5vw;
+    }
+
+    .card-name {
+        font-family: Inter-SemiBold;
+        color: white;
+    }
+}

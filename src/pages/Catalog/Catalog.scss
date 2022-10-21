@@ -1,0 +1,62 @@
+body {
+    background-color: gray;
+}
+
+.catalog {
+    background-color: rgba(7, 146, 144, 0.827);
+
+    .catalog--filter {
+        display: flex;
+        justify-content: space-between;
+        height: 6.5vh;
+        background-color: rgba(118, 118, 241, 0.858);
+        border: 1px solid blue;
+        border-radius: 5px;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        align-items: center;
+
+        .catalog--filter-select {
+            display: flex;
+            width: 50vw;
+            justify-content: space-between;
+        }
+
+        .catalog--filter-select > select {
+            height: 3vh;
+            font-family: Inter-Regular;
+            border-radius: 5px;
+        }
+
+        .catalog--filter-helicopter {
+            
+            .catalog--filter-helicopter-name {
+                height: 3vh;
+                width: 15vw;
+                font-family: Inter-Regular;
+                border-radius: 5px;
+                padding-left: 0.5vw;
+            }
+    
+            .catalog--filter-helicopter-btn {
+                height: 3vh;
+                width: 5vw;
+                margin-left: 1vw;
+                font-family: Inter-Regular;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    .catalog-card-section {
+        height: 74.5vh;
+        border: 1px solid rgb(255, 148, 255);
+        border-radius: 5px;
+        display: grid;
+        padding: 2vh 2vw 6vh;
+
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 4vw;
+    }
+}

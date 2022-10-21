@@ -1,0 +1,53 @@
+.home {
+    background-color: rgb(220, 193, 244);
+
+    & > div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-block: 5vh;
+
+        img {
+            width: 35%;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-block: 2vh;
+        }
+        
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 55vw;
+            font-family: Allibaba-Semi-Bold;
+
+            p {
+                font-family: Bubble-Thai;
+            }
+        }
+    }
+
+    & > section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 4vh;
+
+        div {
+            display: grid;
+            padding: 2vh 2vw 6vh;
+
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4vw;
+        }
+
+        button {
+            height: 6vh;
+            width: 13vw;
+            font-size: 1.4rem;
+            border: 2px ridge black;
+            border-radius: 10px;
+            background-color: rgb(110, 197, 137);
+        }
+    }
+}

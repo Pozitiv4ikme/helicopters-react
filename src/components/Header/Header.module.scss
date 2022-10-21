@@ -1,0 +1,32 @@
+@use "../../assets/styles/mixins.scss";
+
+header {
+    background-color: rgba(82, 195, 247, 0.799);
+    @include mixins.space-around-center();
+    height: 10vh;
+    border: 3px groove rgba(57, 160, 207, 0.799);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    img {
+        width: 5vw;
+    }
+
+    nav {
+        
+        ul {
+            @include mixins.space-around-center();
+            list-style: none;
+
+            li {
+                margin-right: 6vw;
+                color: black;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+}
