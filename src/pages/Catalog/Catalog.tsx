@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Catalog.scss";
+import styles from "./Catalog.module.scss";
 import { Helicopter } from "../../components/Helicopter/Helicopter";
 
 export const Catalog: React.FC = () => {
@@ -32,6 +32,13 @@ export const Catalog: React.FC = () => {
       maxSpeed: 10000,
       price: 100213100,
     },
+    {
+      key: 5,
+      name: "Taras",
+      amountOfPassangers: 5,
+      maxSpeed: 2,
+      price: 1,
+    },
   ]);
 
   const helicopters = helicoptersData.map((helicopters) => {
@@ -47,31 +54,31 @@ export const Catalog: React.FC = () => {
   });
 
   return (
-    <div className="catalog">
-      <section className="catalog--filter">
-        <div className="catalog--filter-select">
-            <select className="catalog--selectByPrice">
+    <div className={styles.catalog}>
+      <section className={styles.catalogFilter}>
+        <div className={styles.catalogFilterSelect}>
+            <select className={styles.sortByPrise}>
                 <option value="0">Select sort by price:</option>
-                <option value="1">from small to big</option>
-                <option value="2">from big to small</option>
+                <option value="1">from cheaper to more expensive</option>
+                <option value="2">from expensive to cheap</option>
             </select>
-            <select className="catalog--selectByPassangers">
-                <option value="0">Select sort by amount of passangers:</option>
-                <option value="1">from small to big</option>
-                <option value="2">from big to small</option>
-            </select>
-            <select className="catalog--selectBySpeed">
-                <option value="0">Select sort by maximum speed:</option>
-                <option value="1">from small to big</option>
-                <option value="2">from big to small</option>
-            </select>
+            <div className={styles.dropdownMenu}>
+              <span>Sort by:</span>
+              <div className={styles.content}>
+                  <input type="checkbox" id="sortByPassengers"/>
+                  <label htmlFor="sortByPassengers">amount of passengers</label>
+
+                  <input type="checkbox" id="sortBySpeed"/>
+                  <label htmlFor="sortBySpeed">maximum speed</label>
+              </div>
+            </div>
         </div>
-        <div className="catalog--filter-helicopter">
-            <input className="catalog--filter-helicopter-name" type="text" placeholder="Input helecopter name..."/>
-            <button className="catalog--filter-helicopter-btn">Find</button>
+        <div className={styles.catalogFilterHelicopter}>
+            <input className={styles.catalogFilterHelicopterName} type="text" placeholder="Input helecopter name..."/>
+            <button className={styles.catalogFilterHelicopterBtn}>Find</button>
         </div>
       </section>
-      <main className="catalog-card-section">{helicopters}</main>
+      <main className={styles.catalogCardSection}>{helicopters}</main>
     </div>
   );
 };

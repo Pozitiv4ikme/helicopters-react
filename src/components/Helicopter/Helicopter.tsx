@@ -1,5 +1,5 @@
 import React from "react";
-import "./Helicopter.scss";
+import styles from "./Helicopter.module.scss";
 import helicopter from "../../assets/images/helicopter.jpeg";
 
 interface HelicopterProps {
@@ -12,14 +12,16 @@ interface HelicopterProps {
 
 export const Helicopter: React.FC<HelicopterProps> = (props) => {
     return (
-        <div className="card-container">
-            <h1 className="card-title">Item {props.name}</h1>
+        <div className={styles.cardContainer}>
+            <h2 className={styles.cardTitle}>Item {props.name}</h2>
             <img src={helicopter} alt="helicopter" />
-            <h1 className="card-name">{props.name}</h1>
-            <p>Amount of passangers(max): {props.amountOfPassangers}</p>
-            <p>Maximum speed: {props.maxSpeed} (km/h)</p>
-            <p>Price: {props.price}($)</p>
-            <button>View more</button>
+            <div className={styles.cardDescription}>
+                <p className={styles.cardName}>{props.name}</p>
+                <p>Amount of passangers(max): {props.amountOfPassangers}</p>
+                <p>Maximum speed: {props.maxSpeed} (km/h)</p>
+                <p>Price: {props.price}($)</p>
+                <button className={styles.viewMoreBtn}>View more</button>
+            </div>
         </div>
     );
 }

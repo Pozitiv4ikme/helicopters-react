@@ -1,9 +1,25 @@
-article {
-    text-align: center;
+.helicopterCard {
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    img {
+    .helicopterPhoto {
         width: 90%;
-        border: 1px solid yellow;
-        border-radius: 1.5vw;
+        border-radius: 1.5vw 3.25vw / 5vw;
+    }
+
+    .helicopterName {
+        margin-block: 1vh;
+        font-family: Montserrat-Regular;
+        text-shadow: 1px 1px 1px #8a838b, 2px 2px 1px #8a838b;
+    }
+
+    .helicopterDescription{
+        font-family: Inter-Light;
+        word-spacing: 3px;
+        align-self: center;
+        width: 25vw;
+        text-indent: 1.5vw;
     }
 }

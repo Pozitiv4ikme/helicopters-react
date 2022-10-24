@@ -1,21 +1,66 @@
 @font-face {
-  font-family: Allibaba-Semi-Bold;
-  src: url(/src/assets/fonts/Alkalami-Regular.ttf);
-}
-
-@font-face {
-  font-family: Bubble-Thai;
-  src: url(/src/assets/fonts/FuzzyBubbles-Regular.ttf);
-}
-
-@font-face {
   font-family: Inter-Regular;
-  src: url(/src/assets/fonts/static/Inter-Regular.ttf);
+  src: url(/src/assets/fonts/Inter/Inter-Regular.ttf);
 }
 
 @font-face {
   font-family: Inter-SemiBold;
-  src: url(/src/assets/fonts/static/Inter-SemiBold.ttf);
+  src: url(/src/assets/fonts/Inter/Inter-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Inter-Light;
+  src: url(/src/assets/fonts/Inter/Inter-Light.ttf);
+}
+
+@font-face {
+  font-family: Inter-Medium;
+  src: url(/src/assets/fonts/Inter/Inter-Medium.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-ExtraLight;
+  src: url(/src/assets/fonts/Montserrat/Montserrat-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(/src/assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Light;
+  src: url(/src/assets/fonts/Montserrat/Montserrat-Light.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-LightItalic;
+  src: url(/src/assets/fonts/Montserrat/Montserrat-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: RobotoSlab-SemiBold;
+  src: url(/src/assets/fonts/RobotoSlab/RobotoSlab-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: RobotoSlab-Thin;
+  src: url(/src/assets/fonts/RobotoSlab/RobotoSlab-Thin.ttf);
+}
+
+@font-face {
+  font-family: RobotoSlab-ExtraLgiht;
+  src: url(/src/assets/fonts/RobotoSlab/RobotoSlab-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-MediumItalic;
+  src: url(/src/assets/fonts/Montserrat/Montserrat-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-BlackItalic;
+  src: url(/src/assets/fonts/Montserrat/Montserrat-BlackItalic.ttf);
 }
 
 * {

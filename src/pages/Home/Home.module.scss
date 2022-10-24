@@ -1,0 +1,88 @@
+.home {
+    background-color: #E7DFE8;
+
+    .helicopterPreview {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-block: 5vh;
+
+        .helicopterPhoto {
+            width: 35%;
+            border-radius: 10px;
+            box-shadow: 10px 10px 3px #AF9FA5;
+            margin-block: 2vh;
+        }
+        
+        .helicopterDescription {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            max-width: 40vw;
+            z-index: 0;
+
+            .helicopterName {
+                font-family: RobotoSlab-SemiBold;
+            }
+
+            .descriptionBuble {
+                position: absolute;
+                top: -160px;
+                left: -160px;
+                z-index: -1;
+                width: 50vw;
+            }
+
+            .helicopterHistory {
+                margin-top: 2vh;
+                align-self: center;
+                font-family: RobotoSlab-Thin;
+                font-size: 1.1em;
+                width: 30vw;
+            }
+
+        }
+    }
+
+    .helicoptersSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 4vh;
+
+        .helicopters {
+            display: grid;
+            padding: 2vh 2vw 6vh;
+
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4vw;
+        }
+
+        .helicoptersSectionBtn {
+            height: 5.5vh;
+            width: 15vw;
+            font-size: 1.4rem;
+            font-family: Montserrat-Light;
+            color: #675e61;
+            border-radius: 24px;
+            border-style: none;
+            box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+            cursor: pointer;
+            background-color: #92898a62;
+            letter-spacing: .25px;
+            transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+            touch-action: manipulation;
+            will-change: transform,opacity;
+        }
+
+        .helicoptersSectionBtn:hover {
+            background: #92898a62;
+            color: #322d2f;
+        }
+
+        .helicoptersSectionBtn:not(:disabled):hover {
+            box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+        }
+    }
+}
