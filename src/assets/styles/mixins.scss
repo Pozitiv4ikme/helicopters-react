@@ -3,3 +3,54 @@
     justify-content: space-around;
     align-items: center;
 }
+
+@mixin flex-space-between($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: space-between;
+}
+
+@mixin navigation-btn ($widthProp) {
+    text-decoration: none;
+    color: #E7E7E7;
+    border-radius: 20px;
+    border: none;
+    padding-block: 2vh;
+    font-size: 1.6em;
+    font-family: Montserrat-Regular;
+    letter-spacing: 3px;
+    width: $widthProp;
+    border: 1px solid #A14DA0;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    touch-action: manipulation;
+    z-index: 1;
+}
+
+@mixin navigation-btn-after() {
+    content: "";
+    background-color: #A14DA0;
+    border-radius: 20px;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.25s;
+}
+
+@mixin navigation-btn-hover-after() {
+    top: 0px;
+    left: 0px;
+    box-shadow: 0px 0px 20px rgba(66, 0, 61, 0.768);
+}
+
+@mixin box-shadow-bold() {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+@mixin box-shadow-thin() {
+    box-shadow: 2px 6px 12px 1px rgba(0,0,0,0.2);
+}
