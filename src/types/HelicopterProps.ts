@@ -1,8 +1,8 @@
 export default interface HelicopterProps {
     id: number;
     name: string;
-    amountOfPassangers: number;
-    maxSpeed: number;
+    amount_of_passengers: number;
+    maximum_speed: number;
     price: number;
     description: string;
 }

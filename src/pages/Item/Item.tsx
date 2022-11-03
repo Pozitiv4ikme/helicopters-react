@@ -1,18 +1,24 @@
 import styles from "./Item.module.scss";
-import React, { useContext, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ItemContext } from "../../context/ItemContext";
 import badPig from "../../assets/images/badpig.jpeg";
 import helicopterItem from "../../assets/images/helicopterItemPage.jpeg";
 import successStatus from "../../assets/images/successStatus.svg";
 import descriptionIcon from "../../assets/images/descriptionIcon.svg";
 import passangersIcon from "../../assets/images/passangersIcon.svg";
 import speedIcon from "../../assets/images/speedIcon.svg";
+import { getHelicopters } from "../../services/helicopterAPI";
+import HelicopterProps from "../../types/HelicopterProps";
 
 export const Item: React.FC = () => {
   const { id } = useParams();
-  const context = useContext(ItemContext);
   const like = useRef<SVGSVGElement>(null);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [helicoptersData, setHelicoptersData] = useState<HelicopterProps[]>([]);
+  useEffect(() => {
+    getHelicopters().then(setHelicoptersData).then(() => setIsLoading(false))
+  }, [isLoading]);
 
   const addToFavorite = () => {
     const likeCheck = document.getElementById("likeCheck") as HTMLInputElement;
@@ -25,8 +31,8 @@ export const Item: React.FC = () => {
   };
 
   const helicopter =
-    context &&
-    context.find((item) => {
+    helicoptersData &&
+    helicoptersData.find((item) => {
       let helicId = item.id;
       let paramId = parseInt(id!);
       if (isNaN(paramId)) {
@@ -70,7 +76,7 @@ export const Item: React.FC = () => {
                 alt="passangers icon"
               />
               <p className={styles.amountOfPassangers}>
-                {helicopter?.amountOfPassangers}
+                {helicopter?.amount_of_passengers}
               </p>
             </div>
             <div className={styles.maxSpeedProps}>
@@ -79,7 +85,7 @@ export const Item: React.FC = () => {
                 src={speedIcon}
                 alt="speed icon"
               />
-              <p className={styles.maxSpeed}>{helicopter?.maxSpeed} (km/h)</p>
+              <p className={styles.maxSpeed}>{helicopter?.maximum_speed} (km/h)</p>
             </div>
           </div>
           <div className={styles.additionalInfo}>
