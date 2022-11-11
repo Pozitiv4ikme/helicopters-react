@@ -1,0 +1,118 @@
+.catalog {
+
+    .catalogFilter {
+        display: flex;
+        justify-content: space-between;
+        height: 6.5vh;
+        background: linear-gradient(180deg, #EDE3E4 5%, #EBC3DB 15%);
+        padding-left: 2vw;
+        padding-right: 2vw;
+        align-items: center;
+
+        .catalogFilterSelect {
+            display: flex;
+            width: 24.5vw;
+            top: 1vh;
+            justify-content: space-between;
+            align-items: center;
+
+            .sortByPrise {
+                width: 15vw;
+                height: 3vh;
+                font-family: Montserrat-Regular;
+                font-size: 1em;
+                padding-left: .25vw;
+                border-radius: 5px;
+                border-style: none;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+
+            .dropdownMenu {
+                position: relative;
+                display: inline-block;
+                font-size: 1.2em;
+                font-family: Montserrat-ExtraLight;
+                background-color: #f1b0d7;
+                padding: 0.5vh 2vw 0.5vh 0.5vw;
+                border-radius: 10px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+                &:hover .content {
+                    display: flex;
+                    flex-direction: column;
+                    min-width: 14.5vw;
+                    min-height: 8.35vh;
+                    font-size: 0.8em;
+                    color: black;
+                    font-family: RobotoSlab-Medium;
+                    justify-content: space-between;
+                }
+
+                .content {
+                    display: none;
+                    position: absolute;
+                    background-color: #f9f9f9;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    padding: 12px 16px;
+                    border-radius: 5px;
+                    z-index: 1;
+                    width: 11vw;
+
+                    label {
+                        height: 2.5vh;
+                        padding-block: 0.5vh;
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    input {
+                        display: none;
+
+                        &:checked + label {
+                            background-color:#0079fadb;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .catalogFilterHelicopter {
+            
+            .catalogFilterHelicopterName {
+                height: 3vh;
+                width: 15vw;
+                font-family: Montserrat-LightItalic;
+                border-radius: 5px;
+                border-style: none;
+                padding-left: 0.5vw;
+                box-shadow: 2px 6px 12px 1px rgba(0,0,0,0.2);
+            }
+    
+            .catalogFilterHelicopterBtn {
+                height: 3vh;
+                width: 5vw;
+                margin-left: 1vw;
+                font-family: Montserrat-Regular;
+                letter-spacing: 2px;
+                border-radius: 5px;
+                border-style: none;
+                box-shadow: 2px 6px 12px 1px rgba(0,0,0,0.2);
+                background-color: #F2BAC9;
+            }
+        }
+    }
+
+    .catalogCardSection {
+        height: 74.5vh;
+        display: grid;
+        padding: 2vh 2vw 3vh;
+        background: linear-gradient(180deg, #EBC3DB 0%, #C09BD8 2%);
+
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 4vw;
+        overflow: scroll;
+    }
+}

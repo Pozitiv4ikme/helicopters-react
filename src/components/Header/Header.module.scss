@@ -1,0 +1,43 @@
+@use "../../assets/styles/mixins.scss";
+
+.header {
+    background-color: #EDE3E4;
+    @include mixins.space-around-center();
+    height: 10vh;
+    position: relative;
+    border-style: none;
+    z-index: 1;
+
+    .logo {
+        height: 8vh;
+    }
+
+    .navBar {
+        
+        .navBarList {
+            @include mixins.space-around-center();
+            list-style: none;
+            display: flex;
+            width: 33vw;
+            justify-content: space-between;
+
+            li {
+                color: black;
+                width: 10vw;
+                text-align: center;
+
+                a {
+                    font-family: Montserrat-ExtraLight;
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+
+            .activePage {
+                background-color: #7e777850;
+                padding: 1.85vh 1.85vw;
+                border-radius: 8px;
+            }
+        }
+    }
+}
