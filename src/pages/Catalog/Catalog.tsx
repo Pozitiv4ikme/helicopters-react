@@ -8,24 +8,19 @@ import React, {
 } from "react";
 import styles from "./Catalog.module.scss";
 import { Helicopter } from "../../components/Helicopter/Helicopter";
-import { ItemContext } from "../../context/ItemContext";
 import HelicopterProps from "../../types/HelicopterProps";
+import { getHelicopters } from "../../services/helicopterAPI";
 
 export const Catalog: React.FC = () => {
-  const context = useContext(ItemContext);
-
   const [helicoptersData, setHelicoptersData] = useState<HelicopterProps[]>();
-  const [isLoading, setIsLoading] = useState(true);
-  // console.log(helicoptersData);
 
-  const selectPriceSort = useRef<HTMLSelectElement>(null);
-  // console.log(searchHelicopters.current);
-  // console.log(selectPriceSort.current && selectPriceSort.current.selectedIndex)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setHelicoptersData(context);
-    setIsLoading(false);
-  }, [context]);
+    getHelicopters().then(setHelicoptersData).then(() => setIsLoading(false));
+  }, [isLoading]);
+
+  const selectPriceSort = useRef<HTMLSelectElement>(null);
 
   const listOfItems = useMemo(() => {
     return helicoptersData && [...helicoptersData];
@@ -48,15 +43,18 @@ export const Catalog: React.FC = () => {
 
   const handleNameInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchByNameInputValue(e.target.value);
-    // setHelicoptersData((prevState) => prevState && [...prevState].filter(helicopter => helicopter.name.includes(searchByNameInputValue)))
   };
+
+  useEffect(() => {
+    getHelicopters(searchByNameInputValue).then(setHelicoptersData)
+  }, [searchByNameInputValue]);
 
   const sortBySpeed = () => {
     if (!sortBySpeedInputValue) {
       setHelicoptersData(
         (prevState) =>
           prevState &&
-          [...prevState].sort((a, b) => (a.maxSpeed > b.maxSpeed ? 1 : -1))
+          [...prevState].sort((a, b) => (a.maximum_speed > b.maximum_speed ? 1 : -1))
       );
     } else {
       setHelicoptersData(listOfItems);
@@ -69,7 +67,7 @@ export const Catalog: React.FC = () => {
         (prevState) =>
           prevState &&
           [...prevState].sort((a, b) =>
-            a.amountOfPassangers > b.amountOfPassangers ? 1 : -1
+            a.amount_of_passengers > b.amount_of_passengers ? 1 : -1
           )
       );
     } else {
@@ -98,24 +96,14 @@ export const Catalog: React.FC = () => {
 
   const helicoptersItems =
     helicoptersData &&
-    helicoptersData
-      .filter((helicopter) =>
-        helicopter.name.includes(searchByNameInputValue.trim())
-      )
-      .map((helicopters) => {
-        return (
-          <Helicopter
-            key={helicopters.id}
-            id={helicopters.id}
-            name={helicopters.name}
-            amountOfPassangers={helicopters.amountOfPassangers}
-            maxSpeed={helicopters.maxSpeed}
-            price={helicopters.price}
-            description={helicopters.description}
-          />
-        );
-      });
-
+    helicoptersData.map((helicopters) => {
+      return (
+        <Helicopter
+          key={helicopters.id}
+          {...helicopters}
+        />
+      );
+    });
   return (
     <>
       <div className={styles.catalog}>
@@ -164,7 +152,7 @@ export const Catalog: React.FC = () => {
             <button className={styles.catalogFilterHelicopterBtn}>Find</button>
           </div>
         </section>
-        <main className={styles.catalogCardSection}>{helicoptersItems}</main>
+        <main className={styles.catalogCardSection} style={{display: isLoading ? 'flex' : 'grid', alignItems: 'center'}}>{isLoading === true ? <div className={styles.loader}>Loading...</div> : helicoptersItems}</main>
       </div>
     </>
   );

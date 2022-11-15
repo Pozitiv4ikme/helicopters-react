@@ -10,8 +10,8 @@ export const Helicopter: React.FC<HelicopterProps> = (props) => {
             <img src={helicopter} alt="helicopter" />
             <div className={styles.cardDescription}>
                 <p className={styles.cardName}>{props.name}</p>
-                <p>Amount of passangers(max): {props.amountOfPassangers}</p>
-                <p>Maximum speed: {props.maxSpeed} (km/h)</p>
+                <p>Amount of passangers(max): {props.amount_of_passengers}</p>
+                <p>Maximum speed: {props.maximum_speed} (km/h)</p>
                 <p>Price: {props.price}($)</p>
                 <Link to={`/catalog/${props.id}`} className={styles.viewMoreBtn}>View more</Link>
             </div>

@@ -1,23 +1,29 @@
 import styles from "./Home.module.scss";
 import helicopterImg from "../../assets/images/helicopter.jpeg";
 import { HelicopterCard } from "../../components/HelicopterCard/HelicopterCard";
-import React, { useContext, useState } from "react";
-import {ItemContext} from "../../context/ItemContext";
+import React, { useEffect, useState } from "react";
+import {getHelicopters} from "../../services/helicopterAPI";
+import HelicopterProps from "../../types/HelicopterProps";
 
 export const Home: React.FC = () => {
-  const helicoptersCardsData = useContext(ItemContext)
 
   const initialLimit = 3;
 
+  const [isLoading, setIsLoading] = useState(true);
   const [limit, setLimit] = useState(initialLimit);
+  const [helicoptersData, setHelicoptersData] = useState<HelicopterProps[]>([]);
 
   const showMoreItems = () => {
     setLimit(limit + 3);
   }
 
+  useEffect(() => {
+    getHelicopters().then(setHelicoptersData).then(() => setIsLoading(false))
+  }, [isLoading]);
+
   const helicopters =
-  helicoptersCardsData &&
-  helicoptersCardsData.slice(0, limit).map((helicopters) => {
+  helicoptersData &&
+  helicoptersData.slice(0, limit).map((helicopters) => {
       return (
         <HelicopterCard
           key={helicopters.id}
