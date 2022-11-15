@@ -26,7 +26,7 @@ export const Home: React.FC = () => {
         />
       );
   });
-
+  
   return (
     <div className={styles.home}>
       <div className={styles.helicopterPreview}>
