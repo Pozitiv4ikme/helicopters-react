@@ -1,16 +1,38 @@
 import styles from "./Home.module.scss";
-import helicopter from "../../assets/images/helicopter.jpeg";
-import buble from "../../assets/images/buble.svg";
+import helicopterImg from "../../assets/images/helicopter.jpeg";
 import { HelicopterCard } from "../../components/HelicopterCard/HelicopterCard";
-import React from "react";
+import React, { useContext, useState } from "react";
+import {ItemContext} from "../../context/ItemContext";
 
 export const Home: React.FC = () => {
+  const helicoptersCardsData = useContext(ItemContext)
+
+  const initialLimit = 3;
+
+  const [limit, setLimit] = useState(initialLimit);
+
+  const showMoreItems = () => {
+    setLimit(limit + 3);
+  }
+
+  const helicopters =
+  helicoptersCardsData &&
+  helicoptersCardsData.slice(0, limit).map((helicopters) => {
+      return (
+        <HelicopterCard
+          key={helicopters.id}
+          header={helicopters.name}
+          description={helicopters.description}
+        />
+      );
+  });
+  
   return (
     <div className={styles.home}>
       <div className={styles.helicopterPreview}>
         <img
           className={styles.helicopterPhoto}
-          src={helicopter}
+          src={helicopterImg}
           alt="helicopter-1"
         />
         <div className={styles.helicopterDescription}>
@@ -33,7 +55,10 @@ export const Home: React.FC = () => {
             xmlnsXlink="http://www.w3.org/1999/xlink"
             version="1.1"
           >
-            <g transform="translate(369.1365054226543 274.82631731544666)" filter="drop-shadow(7px 5px 3px #769e9e)">
+            <g
+              transform="translate(369.1365054226543 274.82631731544666)"
+              filter="drop-shadow(7px 5px 3px #769e9e)"
+            >
               <path fill="#9fcfd0">
                 <animate
                   attributeName="d"
@@ -52,29 +77,11 @@ export const Home: React.FC = () => {
       </div>
       <section className={styles.helicoptersSection}>
         <div className={styles.helicopters}>
-          <HelicopterCard
-            header="Helicopter-Cuk12"
-            description="
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                            Placeat sunt iste doloremque perferendis adipisci, nam laboriosam 
-                            non perspiciatis quod illo!"
-          />
-          <HelicopterCard
-            header="Helicopter-Fuk43"
-            description="
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                            Placeat sunt iste doloremque perferendis adipisci, nam laboriosam 
-                            non perspiciatis quod illo!"
-          />
-          <HelicopterCard
-            header="Helicopter-Suk312"
-            description="
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                            Placeat sunt iste doloremque perferendis adipisci, nam laboriosam 
-                            non perspiciatis quod illo!"
-          />
+          {helicopters}
         </div>
-        <button className={styles.helicoptersSectionBtn}>View more</button>
+        <button className={styles.helicoptersSectionBtn} onClick={showMoreItems}>
+          View more
+        </button>
       </section>
     </div>
   );

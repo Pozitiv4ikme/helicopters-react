@@ -44,6 +44,11 @@
 }
 
 @font-face {
+  font-family: RobotoSlab-Medium;
+  src: url(/src/assets/fonts/RobotoSlab/RobotoSlab-Medium.ttf);
+}
+
+@font-face {
   font-family: RobotoSlab-Thin;
   src: url(/src/assets/fonts/RobotoSlab/RobotoSlab-Thin.ttf);
 }
@@ -63,6 +68,10 @@
   src: url(/src/assets/fonts/Montserrat/Montserrat-BlackItalic.ttf);
 }
 
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(/src/assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
 * {
   margin: 0;
   padding: 0;

@@ -1,0 +1,164 @@
+@use "../../assets/styles/mixins.scss";
+
+.item {
+    @include mixins.flex-space-between(column);
+    height: 81vh;
+    width: 100vw;
+    padding: 3vh 6vw 5vh;
+    background-image: url(../../assets/images/blobBack.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .itemContainer {
+        @include mixins.flex-space-between(row);
+
+        .itemPreview {
+            .itemPhoto {
+                z-index: 0;
+                border-radius: 10px;
+                height: 500px;
+                width: 500px;
+            }
+
+            .itemName {
+                font-size: 1.6em;
+                font-family: RobotoSlab-Medium;
+                position: absolute;
+                z-index: 1;
+                top: 140px;
+                left: 115px;
+                height: 5vh;
+                width: 12.5vw;
+                color: #320E3B;
+                background-color: #D8D4D5;
+                padding: 0.75vh 0.5vw 1vh;
+                border-radius: 10px;
+                box-shadow: 0px 4px 8px 0px rgba(255, 0, 234, 0.2);
+            }
+        }
+
+        .itemInfo {
+            @include mixins.flex-space-between(column);
+            width: 50vw;
+            height: 40vh;
+
+            .itemProperties {
+                font-size: 1.5em;
+                height: 28vh;
+
+                .description {
+                    @include mixins.flex-space-between(row);
+                    margin-bottom: 2vh;
+
+                    .descriptionIcon {
+                        height: 5vh;
+                    }
+
+                    .descriptionText {
+                        width: 45vw;
+                    }
+                }
+
+                .passangersProps {
+                    @include mixins.flex-space-between(row);
+                    align-items: center;
+                    width: 6vw;
+                    margin-bottom: 2vh;
+
+                    .passangersIcon {
+                        height: 5vh;
+                    }
+                }
+
+                .maxSpeedProps {
+                    @include mixins.flex-space-between(row);
+                    align-items: center;
+                    width: 11.5vw;
+
+                    .maxSpeedIcon {
+                        height: 5vh;
+                    }
+                }
+            }
+            
+            .additionalInfo {
+                height: 7vh;
+                width: 35vw;
+                @include mixins.flex-space-between(row);
+                align-items: center;
+
+                .checkStatus {
+                    @include mixins.flex-space-between(row);
+                    width: 9vw;
+
+                    .successStatus {
+                        height: 5vh;
+                    }
+
+                    .status {
+                        font-size: 1.4em;
+                        align-self: center;
+                    }
+
+                }
+
+                .likeCheck {
+                    position: absolute;
+                    right: 380px;
+                    visibility: hidden;
+                }
+
+                .addToFavorite {
+                    height: 5vh;
+                }
+
+            }
+        }
+    }
+
+    .itemContainerNavigation {
+        @include mixins.flex-space-between(row);
+        align-items: center;
+
+        .itemPrise {
+            font-size: 2em;
+            font-family: RobotoSlab-Medium;
+            color: #B2F7EF;
+            text-shadow: 3.5px 3.5px rgba(0, 0, 0, 0.573), 7px 7px #A14DA0;
+        }
+
+        .navigation {
+            @include mixins.flex-space-between(row);
+            width: 28vw;
+            height: 8vh;
+            padding-block: 0.5vh;
+            align-items: center;
+            z-index: 1;
+
+            .btnReturn {
+                text-align: center;
+                @include mixins.navigation-btn(10vw);
+
+                &:after {
+                    @include mixins.navigation-btn-after();
+                }
+
+                &:hover:after {
+                    @include mixins.navigation-btn-hover-after();
+                }
+            }
+
+            .btnAdd {
+                @include mixins.navigation-btn(13vw);
+
+                &:after {
+                    @include mixins.navigation-btn-after();
+                }
+
+                &:hover:after {
+                    @include mixins.navigation-btn-hover-after();
+                }
+            }
+        }
+    }
+}
