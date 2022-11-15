@@ -1,12 +1,65 @@
-.contextMenu{
-    margin-left: 50px;
-    display: flex;
-    align-items: center;
-    width: 550px;
-    height: 550px;
+@mixin cartNavigationBtn($bg-color, $color) {
+    text-decoration: none;
+    font-size: 1.7em;
+    font-family: Montserrat-ExtraLight;
+    padding: 1.5vh 2vw;
+    background-color: $bg-color;
+    color: $color;
+    border: 1px solid $color;
+    border-radius: 7px;
+}
 
-    .badPig {
-        width: 400px;
-        height: 400px;
+.cartPage {
+    background-color: #F6E8EA;
+    height: 81vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2vh 3vw 4vh;
+
+    .orderInfo {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            display: flex;
+            align-self: center;
+            font-size: 2em;
+            font-family: RobotoSlab-SemiBold;
+            margin-bottom: 3.5vh;
+            letter-spacing: 1.5px;
+        }
+    
+        .priceContainer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: row;
+            margin-top: 2vh;
+    
+            .text {
+                font-size: 1.7em;
+                font-family: Montserrat-Regular;
+            }
+    
+            .price {
+                font-size: 1.7em;
+                font-family: Inter-SemiBold;
+                margin-left: 6vw;
+            }
+        }
+    }
+
+    .navigationContainer {
+        display: flex;
+        justify-content: space-between;
+
+        .backToCatalog {
+            @include cartNavigationBtn(white, black);
+        }
+
+        .countinue {
+            @include cartNavigationBtn(black, white);
+        }
     }
 }
