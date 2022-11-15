@@ -24,11 +24,6 @@
 }
 
 @font-face {
-  font-family: Montserrat-Regular;
-  src: url(/src/assets/fonts/Montserrat/Montserrat-Regular.ttf);
-}
-
-@font-face {
   font-family: Montserrat-Light;
   src: url(/src/assets/fonts/Montserrat/Montserrat-Light.ttf);
 }

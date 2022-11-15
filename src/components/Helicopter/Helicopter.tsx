@@ -1,6 +1,6 @@
 import styles from "./Helicopter.module.scss";
 import helicopter from "../../assets/images/helicopter.jpeg";
-import HelicopterProps from "../../types/HelicopterProps";
+import {HelicopterProps} from "../../types";
 import { Link } from "react-router-dom";
 
 export const Helicopter: React.FC<HelicopterProps> = (props) => {

@@ -7,9 +7,9 @@ import React, {
   ChangeEvent,
 } from "react";
 import styles from "./Catalog.module.scss";
-import { Helicopter } from "../../components/Helicopter/Helicopter";
-import HelicopterProps from "../../types/HelicopterProps";
-import { getHelicopters } from "../../services/helicopterAPI";
+import { Helicopter } from "./../../components";
+import { HelicopterProps } from "../../types";
+import { getHelicopters } from "./../../services";
 
 export const Catalog: React.FC = () => {
   const [helicoptersData, setHelicoptersData] = useState<HelicopterProps[]>();
@@ -17,7 +17,9 @@ export const Catalog: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getHelicopters().then(setHelicoptersData).then(() => setIsLoading(false));
+    getHelicopters()
+      .then(setHelicoptersData)
+      .then(() => setIsLoading(false));
   }, [isLoading]);
 
   const selectPriceSort = useRef<HTMLSelectElement>(null);
@@ -46,7 +48,7 @@ export const Catalog: React.FC = () => {
   };
 
   useEffect(() => {
-    getHelicopters(searchByNameInputValue).then(setHelicoptersData)
+    getHelicopters(searchByNameInputValue).then(setHelicoptersData);
   }, [searchByNameInputValue]);
 
   const sortBySpeed = () => {
@@ -54,7 +56,9 @@ export const Catalog: React.FC = () => {
       setHelicoptersData(
         (prevState) =>
           prevState &&
-          [...prevState].sort((a, b) => (a.maximum_speed > b.maximum_speed ? 1 : -1))
+          [...prevState].sort((a, b) =>
+            a.maximum_speed > b.maximum_speed ? 1 : -1
+          )
       );
     } else {
       setHelicoptersData(listOfItems);
@@ -97,12 +101,7 @@ export const Catalog: React.FC = () => {
   const helicoptersItems =
     helicoptersData &&
     helicoptersData.map((helicopters) => {
-      return (
-        <Helicopter
-          key={helicopters.id}
-          {...helicopters}
-        />
-      );
+      return <Helicopter key={helicopters.id} {...helicopters} />;
     });
   return (
     <>
@@ -152,7 +151,16 @@ export const Catalog: React.FC = () => {
             <button className={styles.catalogFilterHelicopterBtn}>Find</button>
           </div>
         </section>
-        <main className={styles.catalogCardSection} style={{display: isLoading ? 'flex' : 'grid', alignItems: 'center'}}>{isLoading === true ? <div className={styles.loader}>Loading...</div> : helicoptersItems}</main>
+        <main
+          className={styles.catalogCardSection}
+          style={{ display: isLoading ? "flex" : "grid", alignItems: "center" }}
+        >
+          {isLoading === true ? (
+            <div className={styles.loader}>Loading...</div>
+          ) : (
+            helicoptersItems
+          )}
+        </main>
       </div>
     </>
   );
