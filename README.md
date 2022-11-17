@@ -1,9 +1,9 @@
 # Single Page App with React.js
+
 ## Description: 
 You are on your way to finishing this insane project… Create the first of three cart pages - Shopping cart page.
 Also, here you meet one of the most popular React library - [`Redux`](https://react-redux.js.org/).
 
-## Functionality:
 ### Item page: 
 “Add to cart” action should be implemented using `Redux flow`: when you add an item to cart, it should be added to your `redux store`. On Cart page you take all of the items from the store
 ### Cart page: 

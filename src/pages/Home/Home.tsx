@@ -22,6 +22,10 @@ export const Home: React.FC = () => {
       .then(() => setIsLoading(false));
   }, [isLoading]);
 
+  useEffect(() => {
+    getHelicopters().then(setHelicoptersData).then(() => setIsLoading(false))
+  }, [isLoading]);
+
   const helicopters =
     helicoptersData &&
     helicoptersData.slice(0, limit).map((helicopters) => {
