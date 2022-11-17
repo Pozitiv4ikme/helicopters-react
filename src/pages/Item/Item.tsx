@@ -1,23 +1,28 @@
 import styles from "./Item.module.scss";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import badPig from "../../assets/images/badpig.jpeg";
 import helicopterItem from "../../assets/images/helicopterItemPage.jpeg";
 import successStatus from "../../assets/images/successStatus.svg";
 import descriptionIcon from "../../assets/images/descriptionIcon.svg";
 import passangersIcon from "../../assets/images/passangersIcon.svg";
 import speedIcon from "../../assets/images/speedIcon.svg";
-import { getHelicopters } from "../../services/helicopterAPI";
-import HelicopterProps from "../../types/HelicopterProps";
+import { getHelicopters } from "../../services";
+import { HelicopterProps } from "../../types";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../redux";
 
 export const Item: React.FC = () => {
   const { id } = useParams();
   const like = useRef<SVGSVGElement>(null);
 
+  const dispatch = useDispatch();
+
   const [isLoading, setIsLoading] = useState(true);
   const [helicoptersData, setHelicoptersData] = useState<HelicopterProps[]>([]);
   useEffect(() => {
-    getHelicopters().then(setHelicoptersData).then(() => setIsLoading(false))
+    getHelicopters()
+      .then(setHelicoptersData)
+      .then(() => setIsLoading(false));
   }, [isLoading]);
 
   const addToFavorite = () => {
@@ -85,7 +90,9 @@ export const Item: React.FC = () => {
                 src={speedIcon}
                 alt="speed icon"
               />
-              <p className={styles.maxSpeed}>{helicopter?.maximum_speed} (km/h)</p>
+              <p className={styles.maxSpeed}>
+                {helicopter?.maximum_speed} (km/h)
+              </p>
             </div>
           </div>
           <div className={styles.additionalInfo}>
@@ -125,7 +132,7 @@ export const Item: React.FC = () => {
           <Link to="/catalog" className={styles.btnReturn}>
             Go back
           </Link>
-          <button className={styles.btnAdd}>Add to cart</button>
+          <button className={styles.btnAdd} onClick={() => dispatch(addItemToCart([helicopter!.id, helicopter!.price]))}>Add to cart</button>
         </div>
       </section>
     </div>

@@ -1,12 +1,11 @@
 import styles from "./Home.module.scss";
 import helicopterImg from "../../assets/images/helicopter.jpeg";
-import { HelicopterCard } from "../../components/HelicopterCard/HelicopterCard";
+import { HelicopterCard } from "../../components";
 import React, { useEffect, useState } from "react";
-import {getHelicopters} from "../../services/helicopterAPI";
-import HelicopterProps from "../../types/HelicopterProps";
+import { getHelicopters } from "../../services";
+import { HelicopterProps } from "../../types";
 
 export const Home: React.FC = () => {
-
   const initialLimit = 3;
 
   const [isLoading, setIsLoading] = useState(true);
@@ -15,15 +14,21 @@ export const Home: React.FC = () => {
 
   const showMoreItems = () => {
     setLimit(limit + 3);
-  }
+  };
+
+  useEffect(() => {
+    getHelicopters()
+      .then(setHelicoptersData)
+      .then(() => setIsLoading(false));
+  }, [isLoading]);
 
   useEffect(() => {
     getHelicopters().then(setHelicoptersData).then(() => setIsLoading(false))
   }, [isLoading]);
 
   const helicopters =
-  helicoptersData &&
-  helicoptersData.slice(0, limit).map((helicopters) => {
+    helicoptersData &&
+    helicoptersData.slice(0, limit).map((helicopters) => {
       return (
         <HelicopterCard
           key={helicopters.id}
@@ -31,8 +36,8 @@ export const Home: React.FC = () => {
           description={helicopters.description}
         />
       );
-  });
-  
+    });
+
   return (
     <div className={styles.home}>
       <div className={styles.helicopterPreview}>
@@ -82,10 +87,11 @@ export const Home: React.FC = () => {
         </div>
       </div>
       <section className={styles.helicoptersSection}>
-        <div className={styles.helicopters}>
-          {helicopters}
-        </div>
-        <button className={styles.helicoptersSectionBtn} onClick={showMoreItems}>
+        <div className={styles.helicopters}>{helicopters}</div>
+        <button
+          className={styles.helicoptersSectionBtn}
+          onClick={showMoreItems}
+        >
           View more
         </button>
       </section>

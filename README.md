@@ -1,27 +1,20 @@
 # Single Page App with React.js
 
 ## Description: 
-Continue work on your React App by adding a page for  your Item (see the link to wireframe of Item page above). Also, now, you have to make all your previous pages (Home & Catalog) more interactive.
+You are on your way to finishing this insane project… Create the first of three cart pages - Shopping cart page.
+Also, here you meet one of the most popular React library - [`Redux`](https://react-redux.js.org/).
 
-## Requirements:
+### Item page: 
+“Add to cart” action should be implemented using `Redux flow`: when you add an item to cart, it should be added to your `redux store`. On Cart page you take all of the items from the store
+### Cart page: 
+“add/remove” actions should be implemented through redux actions & reducers as well.
 
-Your items should be stored inside the state or context (your choice) of your page
-### `https://uk.reactjs.org/docs/hooks-state.html`
-### `https://uk.reactjs.org/docs/hooks-reference.html#usecontext`
-For your state management use useState() inside Functional Component  instead of this.state and Class component
+## Code style:
+- Redux: All Redux parts (actions / reducers / store) should be kept in separate and specific files (actions.js / reducers.js / store.js etc.)
+- Use [`useSelector`](https://react-redux.js.org/api/hooks#useselector-examples) hook for getting the data from redux store (instead of connect() function)
+- Use [`useDispatch`](https://react-redux.js.org/api/hooks#usedispatch) hook for dispatching your actions (instead of connect() function)
 
-If you decided to use context, use useContext() hook instead of Context.Consumer
-### `https://www.robinwieruch.de/react-usecontext-hook`
-
-## Functionality:
-### Home page: 
-“View more” button should display more elements on the same page Tip: Elements can be just random paragraph & heading, use your imagination ;)
-### Catalog page: 
-You should be able to filter your items list, by applying different filters by item's properties (i.e size/color/type)
-### Catalog page: 
-Search by any text property option should also work
-### Catalog & Item pages: 
-“View more” action on every item should refer to corresponding Item page, with correct information about item (get the info from your state/context)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

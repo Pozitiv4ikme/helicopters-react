@@ -1,50 +1,39 @@
 import { useState, useEffect, ChangeEvent } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Cart.module.scss";
-import pig from "../../assets/images/badpig.jpeg";
+import { items, useAppSelector } from "./../../redux";
+import { CartItem } from "../../components";
 
 export const Cart: React.FC = () => {
-  const [count, setCount] = useState(0);
+  const helicoptersData = useAppSelector(items);
 
-  useEffect(() => {
-    console.log("Hi, Dupa!");
-  }, []);
+  const helicopters = helicoptersData.map((item) => {
+    return <CartItem key={item.id} {...item} />;
+  });
 
-  const handleCountChange = () => {
-      setCount((prevCount) => prevCount + 1)
-      setUpdatedDia(countDia);
+  let totalPrice = 0;
+  for (const helicopter of helicoptersData) {
+    totalPrice = totalPrice + helicopter.price;
   }
 
-  useEffect(() => {
-    console.log("Dupa + " + count);
-  }, [count]);
-
-  const [dia, setDia] = useState("");
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setDia(e.target.value);
-    setCountDia((prevCountDia) => prevCountDia + 1);
-  };
-
-  const [countDia, setCountDia] = useState(0);
-
-  const [updatedDia, setUpdatedDia] = useState(0);
-
   return (
-    <>
-      <div>
-        <p>Count click: {count}</p>
-        <button onClick={handleCountChange}>
-          Click
-        </button>
+    <div className={styles.cartPage}>
+      <div className={styles.orderInfo}>
+        <h5 className={styles.title}>Shopping Cart</h5>
+        <div className={styles.helicopters}>{helicopters}</div>
+        <div className={styles.priceContainer}>
+          <p className={styles.text}>Total amount:</p>
+          <p className={styles.price}>{totalPrice} $</p>
+        </div>
       </div>
-      <div>
-        <input type="text" onChange={handleInputChange} value={dia} />
-        {/* {dia.length % 2 === 0 && <p>Current dia: {updatedDia}</p>} */}
-        <p>Current dia: {updatedDia}</p>
+      <div className={styles.navigationContainer}>
+        <Link to="/catalog" className={styles.backToCatalog}>
+          Back to Catalog
+        </Link>
+        <Link to="/cart/checkout" className={styles.countinue}>
+          Countinue
+        </Link>
       </div>
-      <div className={styles.contextMenu}>
-        <img src={pig} alt="bad pig" className={styles.badPig} />
-      </div>
-    </>
+    </div>
   );
 };
