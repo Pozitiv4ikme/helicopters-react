@@ -15,7 +15,15 @@ export const Cart: React.FC = () => {
     totalPrice = totalPrice + helicopter.price;
   }
 
-  return (
+  return helicoptersData.length === 0 ? (
+    <div className={styles.loaderPage}>
+      <span className={styles.loader}></span>
+      <p className={styles.info}>
+        We are waiting <br />
+        for you to choose your product...
+      </p>
+    </div>
+  ) : (
     <div className={styles.cartPage}>
       <div className={styles.orderInfo}>
         <h5 className={styles.title}>Shopping Cart</h5>

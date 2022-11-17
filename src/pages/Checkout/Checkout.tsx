@@ -69,8 +69,15 @@ export const Checkout: React.FC = () => {
               <div className={styles.inputs}>
                 <section className={styles.rightColumn}>
                   <div className={styles.nameField}>
-                    <label htmlFor="name" className={styles.labelText}>Name</label>
-                    <Field name="name" placeholder="Willie" type="text" className={styles.input} />
+                    <label htmlFor="name" className={styles.labelText}>
+                      Name
+                    </label>
+                    <Field
+                      name="name"
+                      placeholder="Willie"
+                      type="text"
+                      className={styles.input}
+                    />
                     <ErrorMessage
                       name="name"
                       component="h5"
@@ -78,8 +85,15 @@ export const Checkout: React.FC = () => {
                     />
                   </div>
                   <div className={styles.surnameField}>
-                    <label htmlFor="surname" className={styles.labelText}>Surname</label>
-                    <Field name="surname" placeholder="Davenport" type="text" className={styles.input}/>
+                    <label htmlFor="surname" className={styles.labelText}>
+                      Surname
+                    </label>
+                    <Field
+                      name="surname"
+                      placeholder="Davenport"
+                      type="text"
+                      className={styles.input}
+                    />
                     <ErrorMessage
                       name="surname"
                       component="h5"
@@ -87,8 +101,15 @@ export const Checkout: React.FC = () => {
                     />
                   </div>
                   <div className={styles.phoneField}>
-                    <label htmlFor="phone" className={styles.labelText}>Phone</label>
-                    <Field name="phone" type="text" placeholder="optional" className={styles.input}/>
+                    <label htmlFor="phone" className={styles.labelText}>
+                      Phone
+                    </label>
+                    <Field
+                      name="phone"
+                      type="text"
+                      placeholder="optional"
+                      className={styles.input}
+                    />
                     <ErrorMessage
                       name="phone"
                       component="p"
@@ -98,7 +119,9 @@ export const Checkout: React.FC = () => {
                 </section>
                 <section className={styles.leftColumn}>
                   <div className={styles.cardNumberField}>
-                    <label htmlFor="cardNumber" className={styles.labelText}>Card number</label>
+                    <label htmlFor="cardNumber" className={styles.labelText}>
+                      Card number
+                    </label>
                     <Field
                       name="cardNumber"
                       type="text"
@@ -112,8 +135,15 @@ export const Checkout: React.FC = () => {
                     />
                   </div>
                   <div className={styles.expiryDateField}>
-                    <label htmlFor="expiryDate" className={styles.labelText}>Expiry date</label>
-                    <Field name="expiryDate" type="text" placeholder="01/23" className={styles.input}/>
+                    <label htmlFor="expiryDate" className={styles.labelText}>
+                      Expiry date
+                    </label>
+                    <Field
+                      name="expiryDate"
+                      type="text"
+                      placeholder="01/23"
+                      className={styles.input}
+                    />
                     <ErrorMessage
                       name="expiryDate"
                       component="p"
@@ -121,8 +151,15 @@ export const Checkout: React.FC = () => {
                     />
                   </div>
                   <div className={styles.cvvField}>
-                    <label htmlFor="cvv" className={styles.labelText}>CVV</label>
-                    <Field name="cvv" type="text" placeholder="123" className={styles.input}/>
+                    <label htmlFor="cvv" className={styles.labelText}>
+                      CVV
+                    </label>
+                    <Field
+                      name="cvv"
+                      type="text"
+                      placeholder="123"
+                      className={styles.input}
+                    />
                     <ErrorMessage
                       name="cvv"
                       component="p"
@@ -132,7 +169,9 @@ export const Checkout: React.FC = () => {
                 </section>
               </div>
               <div className={styles.emailField}>
-                <label htmlFor="email" className={styles.labelText}>Email</label>
+                <label htmlFor="email" className={styles.labelText}>
+                  Email
+                </label>
                 <Field
                   name="email"
                   placeholder="example@example.com"
@@ -157,7 +196,9 @@ export const Checkout: React.FC = () => {
             <Link className={styles.back} to="/cart">
               Go Back
             </Link>
-            <button className={styles.confirm} type="submit">Confirm order info</button>
+            <button className={styles.confirm} type="submit">
+              Confirm order info
+            </button>
           </div>
         </Form>
       </Formik>
