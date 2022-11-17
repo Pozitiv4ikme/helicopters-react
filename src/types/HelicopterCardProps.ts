@@ -1,4 +1,4 @@
-export default interface HelicopterCardProps {
+export interface HelicopterCardProps {
     name: string;
     description: string;
 }

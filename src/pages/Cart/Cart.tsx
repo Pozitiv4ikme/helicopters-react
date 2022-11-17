@@ -1,4 +1,3 @@
-import { useState, useEffect, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.scss";
 import { items, useAppSelector } from "./../../redux";
@@ -22,7 +21,7 @@ export const Cart: React.FC = () => {
         <h5 className={styles.title}>Shopping Cart</h5>
         <div className={styles.helicopters}>{helicopters}</div>
         <div className={styles.priceContainer}>
-          <p className={styles.text}>Total amount:</p>
+          <p className={styles.text}>Total price:</p>
           <p className={styles.price}>{totalPrice} $</p>
         </div>
       </div>

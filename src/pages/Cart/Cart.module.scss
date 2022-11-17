@@ -1,13 +1,4 @@
-@mixin cartNavigationBtn($bg-color, $color) {
-    text-decoration: none;
-    font-size: 1.7em;
-    font-family: Montserrat-ExtraLight;
-    padding: 1.5vh 2vw;
-    background-color: $bg-color;
-    color: $color;
-    border: 1px solid $color;
-    border-radius: 7px;
-}
+@use "./../../assets/styles/mixins.scss";
 
 .cartPage {
     background-color: #F6E8EA;
@@ -21,6 +12,7 @@
     .orderInfo {
         display: flex;
         flex-direction: column;
+        overflow: scroll;
 
         .title {
             display: flex;
@@ -30,18 +22,24 @@
             margin-bottom: 3.5vh;
             letter-spacing: 1.5px;
         }
-    
+
+        .helicopters {
+            display: flex;
+            flex-direction: column;
+            overflow: scroll;
+        }
+
         .priceContainer {
             display: flex;
             justify-content: flex-end;
             align-items: row;
             margin-top: 2vh;
-    
+
             .text {
                 font-size: 1.7em;
                 font-family: Montserrat-Regular;
             }
-    
+
             .price {
                 font-size: 1.7em;
                 font-family: Inter-SemiBold;
@@ -55,11 +53,11 @@
         justify-content: space-between;
 
         .backToCatalog {
-            @include cartNavigationBtn(white, black);
+            @include mixins.cartNavigationBtn(white, black);
         }
 
         .countinue {
-            @include cartNavigationBtn(black, white);
+            @include mixins.cartNavigationBtn(black, white);
         }
     }
 }

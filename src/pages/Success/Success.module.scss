@@ -1,0 +1,33 @@
+@use "./../../assets/styles/mixins.scss";
+
+.successContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 81vh;
+    align-items: center;
+    padding-top: 10vh;
+    background-color: #EAFDF8;
+
+    .successImg {
+        width: 25vw;
+        margin-bottom: 5vh;
+    }
+
+    .title {
+        font-size: 3.2em;
+        font-family: RobotoSlab-SemiBold;
+        letter-spacing: 2px;
+        margin-bottom: 2vh;
+    }
+
+    .textInfo {
+        font-size: 1.5em;
+        font-family: Montserrat-Regular;
+        margin-bottom: 7vh;
+    }
+
+    .navigate {
+        @include mixins.cartNavigationBtn(black, white);
+    }
+}
