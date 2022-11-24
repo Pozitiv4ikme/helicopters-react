@@ -52,7 +52,7 @@ const CartItemSlice = createSlice({
       }
 
       return state;
-    },
+    }
   },
 });
 

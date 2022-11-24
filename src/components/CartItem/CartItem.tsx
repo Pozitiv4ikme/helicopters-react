@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../../redux";
 import { getHelicopterById } from "../../services";
-import { CartItemsInfo } from "../../types/CartItemInfo";
-import { HelicopterCartItem } from "../../types/HelicopterCartItem";
+import { CartItemsInfo } from "../../types";
+import { HelicopterCartItem } from "../../types";
 import styles from "./CartItem.module.scss";
 import helicopter from "../../assets/images/helicopter.jpeg";
 
