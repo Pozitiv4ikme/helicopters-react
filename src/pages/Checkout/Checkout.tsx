@@ -21,7 +21,6 @@ export const Checkout: React.FC = () => {
           cardNumber: "",
           expiryDate: "",
           cvv: "",
-          adress: "",
         }}
         validationSchema={Yup.object({
           name: Yup.string()

@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
-    <div className="app">
+    <>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -18,7 +18,7 @@ const App: React.FC = () => {
           </Routes>
           <Footer />
         </BrowserRouter>
-    </div>
+    </>
   );
 };
 
