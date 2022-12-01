@@ -19,6 +19,11 @@
 }
 
 @font-face {
+  font-family: Inter-ExtraLight;
+  src: url(/src/assets/fonts/Inter/Inter-ExtraLight.ttf);
+}
+
+@font-face {
   font-family: Montserrat-ExtraLight;
   src: url(/src/assets/fonts/Montserrat/Montserrat-ExtraLight.ttf);
 }
@@ -46,6 +51,11 @@
 @font-face {
   font-family: RobotoSlab-Thin;
   src: url(/src/assets/fonts/RobotoSlab/RobotoSlab-Thin.ttf);
+}
+
+@font-face {
+  font-family: RobotoSlab-Regular;
+  src: url(/src/assets/fonts/RobotoSlab/RobotoSlab-Regular.ttf);
 }
 
 @font-face {

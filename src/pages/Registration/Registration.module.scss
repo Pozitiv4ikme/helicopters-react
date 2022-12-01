@@ -1,0 +1,123 @@
+@use "./../../assets/styles/mixins.scss";
+
+.mainContainer {
+    @include mixins.mainContainerRegistrationLoginPage();
+    display: flex;
+    flex-direction: column;
+
+    .modalContainer {
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        top: 16vh;
+        width: 30vw;
+        height: 23vh;
+        text-align: center;
+        align-items: center;
+        background-color: #DDCAD9;
+        border: 2px dashed black;
+        border-radius: 7px;
+
+        .title {
+            margin-top: 1vh;
+            font-size: 3em;
+            color: red;
+        }
+
+        .textContainer {
+            width: 100%;
+            height: 9vh;
+
+            .text {
+                font-size: 1.8em;
+            }
+        }
+
+        .confirmBtn {
+            width: 55%;
+            height: 3vh;
+            margin-bottom: 1.5vh;
+            border-style: none;
+            border-radius: 10px;
+        }
+    }
+
+    .mainBlock {
+        width: 57vw;
+        height: 62vh;
+        @include mixins.mainBlockRegistrationLoginPage();
+
+        .title {
+            font-size: 2.5em;
+            font-family: RobotoSlab-SemiBold;
+            letter-spacing: 1px;
+            margin-top: 3vh;
+        }
+
+        .form {
+            width: 100%;
+            height: 32vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .input {
+                height: 5vh;
+
+                .value {
+                    height: 5vh;
+                    width: 32vw;
+                    border-style: none none solid;
+                    font-size: 1.4em;
+                    font-family: RobotoSlab-Regular;
+                    background-color: #E5E9EC;
+                }
+
+                .error {
+                    margin-top: 4px;
+                    font-size: 1em;
+                    font-family: Montserrat-Regular;
+                    color: red;
+                }
+            }
+        }
+
+        .navigation {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .text {
+                font-size: 1.3em;
+                font-family: RobotoSlab-Medium;
+                margin-right: 1.5vw;
+            }
+
+            .redirect {
+                font-size: 1.3em;
+                font-family: RobotoSlab-SemiBold;
+                text-decoration: none;
+                // color: rgb(0, 81, 255);
+                color: #390099;
+            }
+        }
+
+        .confirm {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            align-items: center;
+            width: 20vw;
+            height: 5vh;
+            margin-bottom: 3vh;
+            font-size: 1.1em;
+            font-family: Inter-ExtraLight;
+            border-radius: 8px;
+            border-style: none;
+            background-color: #DDCAD9;
+        }
+    }
+}
