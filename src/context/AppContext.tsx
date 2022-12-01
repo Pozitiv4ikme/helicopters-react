@@ -11,13 +11,14 @@ export const AppContext = createContext<AuthenticationContext | null>(null);
 export const AppContextProvider: React.FC<{ children: React.ReactNode }> = (
   props
 ) => {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(true);
 
   const login = () => {
     setIsAuthenticated(true);
   };
   const logout = () => {
     setIsAuthenticated(false);
+    localStorage.clear();
   };
 
   return (
