@@ -10,8 +10,9 @@ import { getHelicopters } from "../../services";
 import { HelicopterProps } from "../../types";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../redux";
+import { WithAuth } from "../../components";
 
-export const Item: React.FC = () => {
+const ItemComponent: React.FC = () => {
   const { id } = useParams();
   const like = useRef<SVGSVGElement>(null);
 
@@ -138,3 +139,5 @@ export const Item: React.FC = () => {
     </div>
   );
 };
+
+export const Item: React.FC = () => <WithAuth><ItemComponent /></WithAuth>

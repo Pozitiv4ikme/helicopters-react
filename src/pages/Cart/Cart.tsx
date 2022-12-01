@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.scss";
 import { items, useAppSelector } from "./../../redux";
-import { CartItem } from "../../components";
+import { CartItem, WithAuth } from "../../components";
 
-export const Cart: React.FC = () => {
+const CartComponent: React.FC = () => {
   const helicoptersData = useAppSelector(items);
 
   const helicopters = helicoptersData.map((item) => {
@@ -44,3 +44,5 @@ export const Cart: React.FC = () => {
     </div>
   );
 };
+
+export const Cart: React.FC = () => <WithAuth><CartComponent /></WithAuth>
