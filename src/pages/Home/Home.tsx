@@ -1,11 +1,11 @@
 import styles from "./Home.module.scss";
 import helicopterImg from "../../assets/images/helicopter.jpeg";
-import { HelicopterCard } from "../../components";
+import { HelicopterCard, WithAuth } from "../../components";
 import React, { useEffect, useState } from "react";
 import { getHelicopters } from "../../services";
 import { HelicopterProps } from "../../types";
 
-export const Home: React.FC = () => {
+const HomeComponent: React.FC = () => {
   const initialLimit = 3;
 
   const [isLoading, setIsLoading] = useState(true);
@@ -98,3 +98,5 @@ export const Home: React.FC = () => {
     </div>
   );
 };
+
+export const Home: React.FC = () => <WithAuth><HomeComponent /></WithAuth>

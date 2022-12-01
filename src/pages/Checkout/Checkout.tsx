@@ -3,8 +3,9 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { useItemsAmount, useTotalPrice } from "../../hooks";
+import { WithAuth } from "../../components";
 
-export const Checkout: React.FC = () => {
+const CheckoutComponent: React.FC = () => {
   const navigate = useNavigate();
   const totalPrice = useTotalPrice();
   const amountOfItems = useItemsAmount();
@@ -21,7 +22,6 @@ export const Checkout: React.FC = () => {
           cardNumber: "",
           expiryDate: "",
           cvv: "",
-          adress: "",
         }}
         validationSchema={Yup.object({
           name: Yup.string()
@@ -205,3 +205,5 @@ export const Checkout: React.FC = () => {
     </>
   );
 };
+
+export const Checkout: React.FC = () => <WithAuth><CheckoutComponent /></WithAuth>

@@ -65,3 +65,24 @@
     border: 1px solid $color;
     border-radius: 7px;
 }
+
+@mixin mainContainerRegistrationLoginPage() {
+    height: 91vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E8E1EF; 
+}
+
+@mixin mainBlockRegistrationLoginPage() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    justify-content: space-between;
+    border: 1px solid rgb(169, 139, 139);
+    border-radius: 8px;
+    box-shadow: 10px -10px 10px gray;
+    background-color: #E5E9EC;
+}
