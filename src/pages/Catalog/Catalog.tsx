@@ -1,5 +1,4 @@
 import React, {
-  useContext,
   useEffect,
   useState,
   useRef,
@@ -7,11 +6,11 @@ import React, {
   ChangeEvent,
 } from "react";
 import styles from "./Catalog.module.scss";
-import { Helicopter } from "./../../components";
+import { Helicopter, WithAuth } from "./../../components";
 import { HelicopterProps } from "../../types";
 import { getHelicopters } from "./../../services";
 
-export const Catalog: React.FC = () => {
+const CatalogComponent: React.FC = () => {
   const [helicoptersData, setHelicoptersData] = useState<HelicopterProps[]>();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -165,3 +164,5 @@ export const Catalog: React.FC = () => {
     </>
   );
 };
+
+export const Catalog: React.FC = () => <WithAuth><CatalogComponent /></WithAuth>

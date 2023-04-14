@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./Success.module.scss";
 import successImg from "./../../assets/images/success.svg";
+import { WithAuth } from "../../components";
 
-export const Success: React.FC = () => {
+const SuccessComponent: React.FC = () => {
     return (
         <div className={styles.successContainer}>
             <img src={successImg} alt="success order" className={styles.successImg}/>
@@ -12,3 +13,5 @@ export const Success: React.FC = () => {
         </div>
     );
 }
+
+export const Success: React.FC = () => <WithAuth><SuccessComponent /></WithAuth>
